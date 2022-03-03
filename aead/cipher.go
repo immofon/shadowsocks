@@ -8,7 +8,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/wzshiming/shadowsocks"
+	"github.com/immofon/shadowsocks"
 	"golang.org/x/crypto/hkdf"
 )
 

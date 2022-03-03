@@ -6,7 +6,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/wzshiming/shadowsocks"
+	"github.com/immofon/shadowsocks"
 )
 
 func RegisterCipher(method string, keyLen, ivLen int, encrypt, decrypt func(key, iv []byte) (cipher.Stream, error)) {

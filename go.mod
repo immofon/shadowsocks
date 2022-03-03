@@ -1,4 +1,4 @@
-module github.com/wzshiming/shadowsocks
+module github.com/immofon/shadowsocks
 
 go 1.15
 

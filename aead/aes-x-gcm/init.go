@@ -4,7 +4,7 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 
-	"github.com/wzshiming/shadowsocks/aead"
+	"github.com/immofon/shadowsocks/aead"
 )
 
 func init() {

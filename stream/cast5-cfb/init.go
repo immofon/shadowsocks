@@ -3,7 +3,7 @@ package cast5_cfb
 import (
 	"crypto/cipher"
 
-	"github.com/wzshiming/shadowsocks/stream"
+	"github.com/immofon/shadowsocks/stream"
 	"golang.org/x/crypto/cast5"
 )
 

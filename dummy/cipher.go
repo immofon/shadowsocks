@@ -3,7 +3,7 @@ package dummy
 import (
 	"net"
 
-	"github.com/wzshiming/shadowsocks"
+	"github.com/immofon/shadowsocks"
 )
 
 func init() {

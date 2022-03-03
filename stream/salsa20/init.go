@@ -4,7 +4,7 @@ import (
 	"crypto/cipher"
 	"encoding/binary"
 
-	"github.com/wzshiming/shadowsocks/stream"
+	"github.com/immofon/shadowsocks/stream"
 	"golang.org/x/crypto/salsa20/salsa"
 )
 

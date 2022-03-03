@@ -4,7 +4,7 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 
-	"github.com/wzshiming/shadowsocks/stream"
+	"github.com/immofon/shadowsocks/stream"
 )
 
 func init() {

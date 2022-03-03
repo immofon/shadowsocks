@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/wzshiming/shadowsocks"
-	_ "github.com/wzshiming/shadowsocks/init"
+	"github.com/immofon/shadowsocks"
+	_ "github.com/immofon/shadowsocks/init"
 )
 
 var address string

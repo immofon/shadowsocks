@@ -1,7 +1,7 @@
 package chacha20_ietf_poly1305
 
 import (
-	"github.com/wzshiming/shadowsocks/aead"
+	"github.com/immofon/shadowsocks/aead"
 	"golang.org/x/crypto/chacha20poly1305"
 )
 

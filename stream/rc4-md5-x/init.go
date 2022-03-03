@@ -5,7 +5,7 @@ import (
 	"crypto/md5"
 	"crypto/rc4"
 
-	"github.com/wzshiming/shadowsocks/stream"
+	"github.com/immofon/shadowsocks/stream"
 )
 
 func init() {
