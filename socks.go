@@ -53,14 +53,15 @@ func parseAddress(s string) (*address, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ip := net.ParseIP(host); ip != nil {
-		addr.IP = ip
-	} else {
-		if len(host) > 255 {
-			return nil, errUnrecognizedAddrType
+	if host == "" {
+		if ip := net.ParseIP(host); ip != nil {
+			addr.IP = ip
 		}
-		addr.Name = host
 	}
+	if len(host) > 255 {
+		return nil, errUnrecognizedAddrType
+	}
+	addr.Name = host
 
 	portNum, err := strconv.ParseUint(port, 10, 16)
 	if err != nil {
@@ -121,7 +122,19 @@ func writeAddress(w io.Writer, addr *address) error {
 		}
 		return nil
 	}
-	if addr.IP != nil {
+	if addr.Name != "" {
+		if len(addr.Name) > 255 {
+			return errStringTooLong
+		}
+		_, err := w.Write([]byte{fqdnAddress, byte(len(addr.Name))})
+		if err != nil {
+			return err
+		}
+		_, err = w.Write([]byte(addr.Name))
+		if err != nil {
+			return err
+		}
+	} else if addr.IP != nil {
 		if ip4 := addr.IP.To4(); ip4 != nil {
 			_, err := w.Write([]byte{ipv4Address})
 			if err != nil {
@@ -145,18 +158,6 @@ func writeAddress(w io.Writer, addr *address) error {
 			if err != nil {
 				return err
 			}
-		}
-	} else if addr.Name != "" {
-		if len(addr.Name) > 255 {
-			return errStringTooLong
-		}
-		_, err := w.Write([]byte{fqdnAddress, byte(len(addr.Name))})
-		if err != nil {
-			return err
-		}
-		_, err = w.Write([]byte(addr.Name))
-		if err != nil {
-			return err
 		}
 	} else {
 		_, err := w.Write([]byte{ipv4Address, 0, 0, 0, 0})
